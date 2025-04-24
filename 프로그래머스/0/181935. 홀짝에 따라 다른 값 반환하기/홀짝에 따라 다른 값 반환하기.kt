@@ -8,4 +8,5 @@ class Solution {
         }
         return answer
     }
+    //fun solution(n: Int) = if (n % 2 != 0) (1..n step 2).sum() else (2..n step 2).map { it.toDouble().pow(2.0) }.sum().toInt()
 }
