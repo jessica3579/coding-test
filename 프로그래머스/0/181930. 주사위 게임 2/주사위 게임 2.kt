@@ -1,8 +1,11 @@
 class Solution {
     fun solution(a: Int, b: Int, c: Int): Int {
         val s = setOf(a, b, c).size
-        if(s == 3) return a + b + c
-        else if(s == 2) return (a+b+c)*(a*a+b*b+c*c)
-        else return (a+b+c)*(a*a+b*b+c*c)*(a*a*a+b*b*b+c*c*c)
+        return when(s){
+            3 -> a + b + c
+            2 -> (a+b+c)*(a*a+b*b+c*c)
+            1 -> (a+b+c)*(a*a+b*b+c*c)*(a*a*a+b*b*b+c*c*c)
+            else -> -1
+        }
     }
 }
