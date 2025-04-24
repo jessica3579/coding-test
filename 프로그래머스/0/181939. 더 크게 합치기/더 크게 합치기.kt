@@ -7,5 +7,6 @@ class Solution {
         else answer = str2.toInt()
         
         return answer
+        //return max("$a$b".toInt(), "$b$a".toInt()) 
     }
 }
