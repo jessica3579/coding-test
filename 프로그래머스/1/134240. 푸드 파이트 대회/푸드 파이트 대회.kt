@@ -6,12 +6,14 @@ class Solution {
                 answer += i
             }
         }
+        val rev = answer.reversed()
         answer += '0'
-        for(i in food.lastIndex downTo 1){
-            for(j in 1..food[i]/2){
-                answer += i
-            }
-        }
+        answer += rev
+        // for(i in food.lastIndex downTo 1){
+        //     for(j in 1..food[i]/2){
+        //         answer += i
+        //     }
+        // }
         return answer
     }
 }
