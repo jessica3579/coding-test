@@ -7,7 +7,6 @@ class Solution {
                 repeat(k){ tmp += y }
             }
             repeat(k){ answer.add(tmp) }
-            tmp = ""
         }
         return answer.toTypedArray<String>()
     }
