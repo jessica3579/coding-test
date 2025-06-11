@@ -16,6 +16,7 @@ class Solution {
             }
             players -= notClearP
         }
-        return fPct.entries.sortedByDescending{ it.value }.map{ it.key }.toIntArray()
+        // return fPct.entries.sortedByDescending{ it.value }.map{ it.key }.toIntArray()
+        return fPct.entries.sortedWith( compareByDescending<Map.Entry<Int, Double>> { it.value }.thenBy{ it.key } ).map{ it.key }.toIntArray()
     }
 }
