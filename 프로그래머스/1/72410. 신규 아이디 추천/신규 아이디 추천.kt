@@ -101,16 +101,9 @@ class Solution {
         // step 2 - 굳이 map하지 않아도 문자열 filter 가능 
         id = id.filter{ it.isLowerCase() || it.isDigit() || it == '-' || it ==  '_' || it == '.' }
         
-        // step 3 - 
-        if(id.contains('.')){
-            var tmp = ""
-            repeat(id.length){ tmp += "." }
-            for(i in id.length downTo 2){
-                if(id.contains(tmp)) id = id.replace(tmp, ".")
-                tmp = tmp.drop(1)
-            }
-        }
-        
+        // step 3 - 정규식 이용하면 더 간단 
+        id = id.replace(Regex("\\.{2,}"), ".")
+
         // step 4
         if(id != "" && id[0] == '.') id = id.drop(1)
         if(id != "" && id[id.lastIndex] == '.') id = id.dropLast(1)
