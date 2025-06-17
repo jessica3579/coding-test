@@ -42,7 +42,7 @@ class Solution {
     fun solution(keyinput: Array<String>, board: IntArray): IntArray {
         var location = intArrayOf(0, 0)
         keyinput.forEach{ key ->
-            val location = move(key, board, location)
+            location = move(key, board, location)
         }
         return location
     }
