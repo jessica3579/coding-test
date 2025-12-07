@@ -1,24 +1,12 @@
 import java.util.Scanner;
 
-public class Main{
-    public static void main(String[] args){
+public class Main {
+    public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        
+
         String s = sc.next();
+        String r = new StringBuilder(s).reverse().toString();
         
-        int i = 0;
-        int j = s.length()-1;
-        
-        while(i < j){
-            if(s.charAt(i) != s.charAt(j)){
-                System.out.println(0);
-                return;
-            }
-            i++;
-            j--;
-        }
-        
-        System.out.println(1);
-        sc.close();
+        System.out.println(s.equals(r) ? 1 : 0);
     }
 }
