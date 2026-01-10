@@ -1,34 +1,26 @@
-import java.util.Scanner;
+import java.io.*;
+import java.util.*;
 
 public class Main {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-
-        boolean[][] paper = new boolean[100][100];
-
-        int n = sc.nextInt(); 
-
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int total = 0; 
+        int n = Integer.parseInt(br.readLine()); 
+        boolean[][] arr = new boolean[101][101];  
         for (int i = 0; i < n; i++) {
-            int x = sc.nextInt();
-            int y = sc.nextInt();
-
-            for (int r = x; r < x + 10; r++) {
-                for (int c = y; c < y + 10; c++) {
-                    paper[r][c] = true;
+            StringTokenizer st = new StringTokenizer(br.readLine());
+            int x = Integer.parseInt(st.nextToken());
+            int y = Integer.parseInt(st.nextToken());
+            
+            for (int j = x; j < x+10; j++) {
+                for (int k = y; k < y+10; k++) {
+                    if (!arr[j][k]) {
+                        arr[j][k] = true;
+                        total++;
+                    }
                 }
             }
         }
-
-        int area = 0;
-
-        for (int i = 0; i < 100; i++) {
-            for (int j = 0; j < 100; j++) {
-                if (paper[i][j]) {
-                    area++;
-                }
-            }
-        }
-
-        System.out.println(area);
+        System.out.print(total);
     }
 }
