@@ -1,21 +1,41 @@
-import java.util.Scanner;
-
-public class Main{
-    public static void main(String[] args){
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.IOException;
+import java.util.StringTokenizer;
+ 
+public class Main {
+ 
+	public static void main(String[] args) throws IOException {
+ 
+		String f = "factor\n";
+		String m = "multiple\n";
+		String n = "neither\n";
         
-        Scanner sc = new Scanner(System.in);
-        
-        int a, b;
-        
-        while(true){
-            a = sc.nextInt();
-            b = sc.nextInt();
-            
-            if(a == 0 && b == 0) break;
-            
-            if(b % a == 0) System.out.println("factor");
-            else if(a % b == 0) System.out.println("multiple");
-            else System.out.println("neither");
-        }
-    }
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringBuilder sb = new StringBuilder();
+		StringTokenizer st;
+ 
+		while(true) {
+			
+			st = new StringTokenizer(br.readLine()," ");
+			
+			int first = Integer.parseInt(st.nextToken());
+			int second = Integer.parseInt(st.nextToken());
+			
+			if(first == 0 && second == 0) break;
+			
+			if(second % first == 0) {
+				sb.append(f);
+			}
+			else if(first % second == 0) {
+				sb.append(m);
+			}
+			else {
+				sb.append(n);
+			}
+			
+		}
+		System.out.println(sb);
+	}
+ 
 }
