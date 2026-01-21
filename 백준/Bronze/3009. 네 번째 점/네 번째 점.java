@@ -1,27 +1,33 @@
-import java.util.Scanner;
+import java.io.*;
+import java.util.StringTokenizer;
 
 public class Main {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
-        int[] x = new int[3];
-        int[] y = new int[3];
+        StringTokenizer token;
 
-        for (int i = 0; i < 3; i++) {
-            x[i] = sc.nextInt();
-            y[i] = sc.nextInt();
+        int x_axis[] = new int[3]; 
+        int y_axis[] = new int[3];
+        
+        for(int i = 0; i < 3; i++) { 
+            token = new StringTokenizer(br.readLine());
+            x_axis[i] = Integer.parseInt(token.nextToken()); 
+            y_axis[i] = Integer.parseInt(token.nextToken()); 
         }
+        
+        br.close();
 
-        int resultX, resultY;
-
-        if (x[0] == x[1]) resultX = x[2];
-        else if (x[0] == x[2]) resultX = x[1];
-        else resultX = x[0];
-
-        if (y[0] == y[1]) resultY = y[2];
-        else if (y[0] == y[2]) resultY = y[1];
-        else resultY = y[0];
-
-        System.out.println(resultX + " " + resultY);
+        bw.write(findAxis(x_axis) + " " + findAxis(y_axis));
+        bw.flush();
+        bw.close();
+    }
+    static int findAxis(int[] array){
+        if(array[0] == array[1]){ 
+            return array[2];
+        }else{ 
+            return (array[0] == array[2]) ? (array[1]) : (array[0]);
+        }
     }
 }
