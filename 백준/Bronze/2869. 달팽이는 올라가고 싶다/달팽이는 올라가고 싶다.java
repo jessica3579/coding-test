@@ -1,18 +1,25 @@
-import java.util.Scanner;
+import java.io.*;
+import java.util.StringTokenizer;
 
-public class Main{
-    public static void main(String[] args){
-        Scanner sc = new Scanner(System.in);
+public class Main {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        br.close();
         
-        int A = sc.nextInt();
-        int B = sc.nextInt();
-        int V = sc.nextInt();
+        long A = Long.parseLong(st.nextToken()); 
+        long B = Long.parseLong(st.nextToken()); 
+        long V = Long.parseLong(st.nextToken());
+
+        long dayDist = A - B; 
+        long goalDest = V -B; 
         
-        int diff = A - B;
-        int day = (V-A) / diff;
-        
-        if((V-A) % diff != 0) day++;
-        
-        System.out.println(day+1);
+        if(goalDest%dayDist != 0){ 
+            System.out.println(goalDest/dayDist + 1);
+        }else{ 
+            System.out.println(goalDest/dayDist);
+        }
+
     }
 }
