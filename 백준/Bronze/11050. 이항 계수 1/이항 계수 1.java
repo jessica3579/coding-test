@@ -1,22 +1,29 @@
-import java.util.*;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.IOException;
+import java.util.StringTokenizer;
+ 
 public class Main {
-    public static void main(String args[]){
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        int r = sc.nextInt();
-
-        int result, p1=1, p2=1, p3=1;
-
-        for(int i=1; i<=n; i++) {
-            p1 *= i;
-        }
-        for(int i=1; i<=r; i++) {
-            p2 *= i;
-        }
-        for(int i=1; i<=(n-r); i++) {
-            p3 *= i;
-        }
-        result = p1 / (p2*p3) ;
-        System.out.println(result);
-    }
+ 
+	public static void main(String[] args) throws IOException {
+		
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		
+		StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+		
+		int N = Integer.parseInt(st.nextToken());
+		int K = Integer.parseInt(st.nextToken());
+ 
+		System.out.println(BC(N, K));
+		
+	}
+	
+	static int BC(int n, int k) {
+		
+		if(n == k || k == 0) {
+			return 1;
+		}
+ 
+		return BC(n - 1, k - 1) + BC(n - 1, k);
+	}
 }
